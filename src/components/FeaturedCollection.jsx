@@ -38,11 +38,11 @@ function FeaturedCollection() {
             </div>
           </div>
           <div className="text-lg   cursor-pointer w-fit">
-            <NavLink to="/aboutus"> <button className ="border-yellow-300 border-2 rounded-lg p-3 ">more about us</button></NavLink>
+            <NavLink to="/aboutus"> <button type="button" className ="border-yellow-300 border-2 h-8 w-[150px]  rounded-sm   hover:text-black hover:bg-yellow-300 hover:border-black transition-all ease-in duration-300">more about us</button></NavLink>
           </div>
         </div>
       </div>
-      <div className="h-[80vh] mt-20 bg-newCollection flex flex-col justify-center items-center lg:text-5xl text-3xlBoldy bg-center bg-cover text-white" />
+      <div className="h-[80vh] mt-20 bg-newCollection flex flex-col justify-center items-center lg:text-5xl text-3xl Boldy bg-center bg-cover text-white" />
     </div>
   );
 }

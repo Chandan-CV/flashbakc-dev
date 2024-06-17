@@ -38,9 +38,9 @@ function Thoughts() {
             <div className=" w-full text-lg  border cursor-pointer pb-20  rounded-lg font-bold  Boldy uppercase text-black ">
               <div className=" border w-fit h-min p-3 rounded-lg mt-10">
                 <NavLink to="/testimonials" >
-                <button className ="border-yellow-300 border-1 p-3 ">
-                  read more
-                  </button>
+                <button type="button" className ="border-black border-2 px-2  rounded-sm   hover:text-black hover:bg-yellow-300 hover:border-yellow-300 transition-all ease-in duration-300">read more</button>
+
+                  
                 </NavLink>
               </div>
             </div>
@@ -61,7 +61,7 @@ function Thoughts() {
           <span className="text-[#FFCA00] Boldy sm:text-5xl">AWARDS</span>
           <span className="Actonia sm:text-5xl">&</span>{" "}
           <span className=" Boldy sm:lg:text-5xl text-3xltext-[#1c1c1c]">
-            STORIES
+            FEATURES
           </span>
         </div>
         <div className="flex sm:flex-row flex-col justify-center items-center gap-10  pb-20  ">

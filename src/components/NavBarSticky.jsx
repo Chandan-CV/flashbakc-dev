@@ -159,7 +159,7 @@ function NavBarSticky(props) {
 
       <div className=" flex flex-col w-screen justify-between overflow-hidden">
         {GetInTouchButtonVisible ? (
-          <div className=" flex flex-row bg-[#ffca00] h-[34px] p-3 w-[145px] rounded text-black cursor-pointer fixed right-5 top-5 overflow-hidden">
+          <button type= "button" className=" flex flex-row bg-[#ffca00] h-[34px] p-3 w-[145px] rounded text-black cursor-pointer fixed right-5 top-5 overflow-hidden  hover:text-black hover:bg-yellow-300 hover:border-black transition-all ease-in duration-300">
             <span className="mr-2 Boldy flex items-center justify-center">
               GET{" "}
             </span>
@@ -180,10 +180,10 @@ function NavBarSticky(props) {
                 {stuff[CurrentStuff]}
               </MovingComponent>
             </div>
-          </div>
+          </button>
         ) : null}
         {GetInTouchButtonVisible ? (
-          <div className=" flex flex-row bg-[#ffca00] h-[34px] p-2 w-[140px] rounded text-black cursor-pointer fixed right-5 top-5 overflow-hidden">
+          <button className=" flex flex-row bg-[#ffca00] h-[34px] p-2 w-[140px] rounded text-black cursor-pointer fixed right-5 top-5 overflow-hidden  hover:text-black hover:bg-yellow-300 hover:border-black transition-all ease-in duration-300">
             <span className="mr-2 Boldy flex items-center justify-center">
               GET{" "}
             </span>
@@ -205,7 +205,7 @@ function NavBarSticky(props) {
                 {stuff[CurrentStuff]}
               </MovingComponent>
             </div>
-          </div>
+          </button>
         ) : null}
         <div className=" sm:hidden absolute bg-none ">
           <IconButton
@@ -220,7 +220,7 @@ function NavBarSticky(props) {
             }}
             open={open}
             onClose={() => setOpen(false)}
-            size={'lg'}
+            size='lg'
           >
             <Box
               sx={{
@@ -285,10 +285,11 @@ function NavBarSticky(props) {
                 "& > div": { justifyContent: "center" },
               }}
             >
-              <ListItemButton sx={{ fontWeight: "lg" }}>Home</ListItemButton>
-              <ListItemButton>About</ListItemButton>
-              <ListItemButton>Studio</ListItemButton>
-              <ListItemButton>Contact</ListItemButton>
+              <ListItemButton sx={{ fontWeight: "lg" }}>Stories</ListItemButton>
+              <ListItemButton>About Us</ListItemButton>
+              <ListItemButton>FAQs</ListItemButton>
+              <ListItemButton>Testimonials</ListItemButton>
+              <ListItemButton>Blogs</ListItemButton>
             </List>
           </Drawer>
         </div>

@@ -229,12 +229,12 @@ function Footer() {
         <div className="flex-1">
         <img src="https://cdn.sanity.io/images/u8qx4arf/production/272ca9b7e96fc5ac962b9cbb5d0e4ecbc6d9ff47-74x89.png" className=" w-[57px] pt-[60px] sm:mb-0 mb-20" alt="Quote" />
         </div>
-        <div className = " flex flex-col text-4xl Boldy text-white text-center pb-[50px]">
-        <div className="flex flex-row text-4xl Boldy text-white text-center pl-10">
+        <div className = " flex flex-col text-4xl Boldy text-white text-center ">
+        <div className="flex flex-row text-4xl Boldy text-white text-center pl-10 pt-[50px]">
           Lets Get
           <img src = "https://cdn.sanity.io/images/u8qx4arf/production/4b7a41122dadf6389912a00d9927152055eb626a-28x28.svg"  alt="hello" className="w-[28px] h-[18px]" />        </div>
 
-          <div className="text-yellow-300" key={CurrentStuff}>
+          <div className="text-yellow-300 pl-5" key={CurrentStuff}>
             <MovingComponent
               id="moving"
               type="fadeInFromBottom"
@@ -254,13 +254,13 @@ function Footer() {
           <a href="mailto:heythere@flashbakc-studios.com" className="text-white Courier sm:text-1xl  text-sm sm:mb-2 mb-10 justify-center text-center">heythere@flashbakc-studios.com</a>
         </div>
       </div>
-            <div className="Courier border border-white w-full px-20 pb-[50px] ">
+            <div className="Courier border border-[#4A4A4A] w-full px-20 pb-[50px] ">
               <hr className="border-[#4A4A4A]" />
               <div className="flex flex-col sm:flex-row justify-between text-xs pt-5 text-center ">
                 <span>© 2024 Flashbakc Studios Fabian & Rahul. All rights reserved.</span>
-                <div className="flex sm:mt-0 mt-10 flex-row">
-                  <span className="mr-2">Privacy Policy</span>
-                  <span className="mr-2">Terms & Conditions</span>
+                <div className="flex sm:mt-0 mt-10 flex-row pr-[50px]">
+                  <span className="mr-5 ">Privacy Policy</span>
+                  <span className="mr-5">Terms & Conditions</span>
                   <span className="">Copyright</span>
                 </div>
                 <div className=" Courier flex sm:mt-0 mt-10 flex-row">
