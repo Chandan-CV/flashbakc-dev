@@ -7,7 +7,7 @@ function AdminSidebar() {
       <Sidebar aria-label="Default sidebar example" className="h-screen">
         <Sidebar.Items>
           <Sidebar.ItemGroup>
-            <Sidebar.Item href="#" icon={HiChartPie}>
+            <Sidebar.Item href="/" icon={HiChartPie}>
               Dashboard
             </Sidebar.Item>
             <Sidebar.Item

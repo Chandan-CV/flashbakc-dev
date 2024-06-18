@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import {
   Button,
   Card,
@@ -9,28 +8,15 @@ import {
   TableHeadCell,
   TableRow,
 } from "flowbite-react";
-import { getTestimonials } from "../../../services/Testimonials";
+import { useEffect } from "react";
 import AdminLayout from "../../../components/AdminLayout";
+import useFetchData from "../../../customHooks/useFetchData";
 
 function TestimonialsAdmin() {
-  const [testimonialsData, setTestimonialsData] = useState();
-
-  const fetchData = async () => {
-    try {
-      const { data, error } = await getTestimonials();
-
-      if (error) {
-        throw new Error("Error while fetching Testimonial");
-      }
-
-      setTestimonialsData(data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
+  const { testimonialsData, fetchTestimonials } = useFetchData();
 
   useEffect(() => {
-    fetchData();
+    fetchTestimonials();
   }, []);
 
   return (

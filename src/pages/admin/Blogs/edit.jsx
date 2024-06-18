@@ -1,17 +1,21 @@
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Button, Card, FileInput, Label, TextInput } from "flowbite-react";
 import AdminLayout from "../../../components/AdminLayout";
-import { createBlog } from "../../../services/Blogs";
+import { editBlog, fetchOneBlog } from "../../../services/Blogs";
 
-function CreateBlogs() {
+function EditBlog() {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm();
 
   const navigate = useNavigate();
+
+  const { id } = useParams();
 
   const onSubmit = async (data) => {
     const coverImage = data.coverImage[0];
@@ -31,19 +35,32 @@ function CreateBlogs() {
       imageTwo,
       imageSix,
     };
-
     try {
-      const response = await createBlog(apiData);
+      const response = await editBlog(id, apiData);
       if (response?.data) {
         navigate("/admin/blogs");
       } else {
-        alert("Duplicate image Already exists");
+        alert("Duplicate image Uploaded");
       }
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.error("Unexpected error:", err);
     }
   };
 
+  const fetchBlog = async () => {
+    const { data, error } = await fetchOneBlog(id);
+    if (error) {
+      throw new Error("Error while fetching Blog");
+    } else {
+      Object.keys(data[0]).forEach((key) => setValue(key, data[0][key]));
+    }
+  };
+
+  useEffect(() => {
+    if (id) {
+      fetchBlog();
+    }
+  }, [id]);
   return (
     <div>
       <AdminLayout>
@@ -69,6 +86,7 @@ function CreateBlogs() {
                 <FileInput
                   id="file-upload-helper-text"
                   helperText="SVG, PNG, JPG or GIF (MAX. 800x400px)."
+                  // eslint-disable-next-line react/jsx-props-no-spreading
                   {...register("coverImage", { required: true })}
                 />
                 {errors.image && (
@@ -85,6 +103,7 @@ function CreateBlogs() {
                   type="text"
                   placeholder="Blog Title"
                   required
+                  // eslint-disable-next-line react/jsx-props-no-spreading
                   {...register("title", { required: true })}
                 />
                 {errors.title && (
@@ -101,6 +120,7 @@ function CreateBlogs() {
                   type="number"
                   placeholder="Reading Time"
                   required
+                  // eslint-disable-next-line react/jsx-props-no-spreading
                   {...register("readingTime", { required: true })}
                 />
                 {errors.readingTime && (
@@ -119,6 +139,7 @@ function CreateBlogs() {
                   type="text"
                   placeholder="Tags"
                   required
+                  // eslint-disable-next-line react/jsx-props-no-spreading
                   {...register("tags", { required: true })}
                 />
                 {errors.tags && (
@@ -137,6 +158,7 @@ function CreateBlogs() {
                   type="text"
                   placeholder="Description"
                   required
+                  // eslint-disable-next-line react/jsx-props-no-spreading
                   {...register("description", { required: true })}
                 />
                 {errors.description && (
@@ -153,6 +175,7 @@ function CreateBlogs() {
                   type="text"
                   placeholder="State"
                   required
+                  // eslint-disable-next-line react/jsx-props-no-spreading
                   {...register("state", { required: true })}
                 />
                 {errors.state && (
@@ -166,6 +189,7 @@ function CreateBlogs() {
                 <FileInput
                   id="file-upload-helper-text"
                   helperText="SVG, PNG, JPG or GIF (MAX. 800x400px)."
+                  // eslint-disable-next-line react/jsx-props-no-spreading
                   {...register("imageOne")}
                 />
                 <div className="mb-2 block">
@@ -176,6 +200,7 @@ function CreateBlogs() {
                   name="titleOne"
                   type="text"
                   placeholder="Title One"
+                  // eslint-disable-next-line react/jsx-props-no-spreading
                   {...register("titleOne")}
                 />
                 <div className="mb-2 block">
@@ -186,6 +211,7 @@ function CreateBlogs() {
                   name="descriptionOne"
                   type="text"
                   placeholder="Description One"
+                  // eslint-disable-next-line react/jsx-props-no-spreading
                   {...register("descriptionOne")}
                 />
               </div>
@@ -196,6 +222,7 @@ function CreateBlogs() {
                 <FileInput
                   id="file-upload-helper-text"
                   helperText="SVG, PNG, JPG or GIF (MAX. 800x400px)."
+                  // eslint-disable-next-line react/jsx-props-no-spreading
                   {...register("imageTwo")}
                 />
                 <div className="mb-2 block">
@@ -206,6 +233,7 @@ function CreateBlogs() {
                   name="titleTwo"
                   type="text"
                   placeholder="Title Two"
+                  // eslint-disable-next-line react/jsx-props-no-spreading
                   {...register("titleTwo")}
                 />
                 <div className="mb-2 block">
@@ -216,6 +244,7 @@ function CreateBlogs() {
                   name="descriptionTwo"
                   type="text"
                   placeholder="Description Two"
+                  // eslint-disable-next-line react/jsx-props-no-spreading
                   {...register("descriptionTwo")}
                 />
               </div>
@@ -229,6 +258,7 @@ function CreateBlogs() {
                 <FileInput
                   id="file-upload-helper-text"
                   helperText="SVG, PNG, JPG or GIF (MAX. 800x400px)."
+                  // eslint-disable-next-line react/jsx-props-no-spreading
                   {...register("imageThree")}
                 />
                 <div className="mb-2 block">
@@ -239,6 +269,7 @@ function CreateBlogs() {
                   name="titleThree"
                   type="text"
                   placeholder="Title Three"
+                  // eslint-disable-next-line react/jsx-props-no-spreading
                   {...register("titleThree")}
                 />
                 <div className="mb-2 block">
@@ -249,6 +280,7 @@ function CreateBlogs() {
                   name="descriptionThree"
                   type="text"
                   placeholder="Description Three"
+                  // eslint-disable-next-line react/jsx-props-no-spreading
                   {...register("descriptionThree")}
                 />
               </div>
@@ -259,6 +291,7 @@ function CreateBlogs() {
                 <FileInput
                   id="file-upload-helper-text"
                   helperText="SVG, PNG, JPG or GIF (MAX. 800x400px)."
+                  // eslint-disable-next-line react/jsx-props-no-spreading
                   {...register("imageFour")}
                 />
                 <div className="mb-2 block">
@@ -269,6 +302,7 @@ function CreateBlogs() {
                   name="titleOne"
                   type="text"
                   placeholder="Title One"
+                  // eslint-disable-next-line react/jsx-props-no-spreading
                   {...register("titleOne")}
                 />
                 <div className="mb-2 block">
@@ -279,6 +313,7 @@ function CreateBlogs() {
                   name="descriptionFour"
                   type="text"
                   placeholder="Description Four"
+                  // eslint-disable-next-line react/jsx-props-no-spreading
                   {...register("descriptionFour")}
                 />
               </div>
@@ -289,6 +324,7 @@ function CreateBlogs() {
                 <FileInput
                   id="file-upload-helper-text"
                   helperText="SVG, PNG, JPG or GIF (MAX. 800x400px)."
+                  // eslint-disable-next-line react/jsx-props-no-spreading
                   {...register("imageFive")}
                 />
                 <div className="mb-2 block">
@@ -299,6 +335,7 @@ function CreateBlogs() {
                   name="titleFive"
                   type="text"
                   placeholder="Title Five"
+                  // eslint-disable-next-line react/jsx-props-no-spreading
                   {...register("titleFive")}
                 />
                 <div className="mb-2 block">
@@ -309,6 +346,7 @@ function CreateBlogs() {
                   name="descriptionFive"
                   type="text"
                   placeholder="Description Five"
+                  // eslint-disable-next-line react/jsx-props-no-spreading
                   {...register("descriptionFive")}
                 />
               </div>
@@ -319,6 +357,7 @@ function CreateBlogs() {
                 <FileInput
                   id="file-upload-helper-text"
                   helperText="SVG, PNG, JPG or GIF (MAX. 800x400px)."
+                  // eslint-disable-next-line react/jsx-props-no-spreading
                   {...register("imageSix")}
                 />
                 <div className="mb-2 block">
@@ -329,6 +368,7 @@ function CreateBlogs() {
                   name="titleSix"
                   type="text"
                   placeholder="Title Six"
+                  // eslint-disable-next-line react/jsx-props-no-spreading
                   {...register("titleSix")}
                 />
                 <div className="mb-2 block">
@@ -339,6 +379,7 @@ function CreateBlogs() {
                   name="descriptionSix"
                   type="text"
                   placeholder="Description Six"
+                  // eslint-disable-next-line react/jsx-props-no-spreading
                   {...register("descriptionSix")}
                 />
               </div>
@@ -350,4 +391,4 @@ function CreateBlogs() {
   );
 }
 
-export default CreateBlogs;
+export default EditBlog;

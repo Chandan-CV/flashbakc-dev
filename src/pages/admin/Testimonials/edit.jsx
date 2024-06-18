@@ -32,7 +32,6 @@ function TestimonialEdit() {
       if (error) {
         console.error("Error editting testimonial", error);
       } else {
-        console.log("Testimonial editted successfully:", responseData);
         navigate("/admin/testimonials");
         // Optionally, redirect or show a success message
       }

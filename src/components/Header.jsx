@@ -1,11 +1,8 @@
-import { useContext, useState } from 'react';
-import NavBarSticky from './NavBarSticky';
+import { useContext, useState } from "react";
+import NavBarSticky from "./NavBarSticky";
 
 function Header() {
-
   const [searchInView, setSearchInView] = useState(false);
-
- 
 
   const toggleSearchView = () => {
     setSearchInView(() => !searchInView);
@@ -58,10 +55,8 @@ function Header() {
           </Link>
         </div>
       </div> */}
-     
-        <NavBarSticky toggleSearchView={toggleSearchView} />
 
-     
+      <NavBarSticky toggleSearchView={toggleSearchView} />
     </header>
   );
 }

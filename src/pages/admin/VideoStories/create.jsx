@@ -24,8 +24,6 @@ function VideoStoryCreate() {
       navigate("/admin/videostories");
       if (error) {
         console.error("Error creating video story:", error);
-      } else {
-        console.log("Video story created successfully:", responseData);
       }
     } catch (err) {
       console.error("Unexpected error:", err);
@@ -66,19 +64,21 @@ function VideoStoryCreate() {
               </div>
               <div>
                 <div className="mb-2 block">
-                  <Label htmlFor="secondPersonName" value="Last Name" />
+                  <Label htmlFor="secondPersonName" value="Second Name" />
                 </div>
                 <TextInput
                   id="secondPersonName"
                   name="secondPersonName"
                   type="text"
-                  placeholder="Last Name"
+                  placeholder="Second Name"
                   required
                   // eslint-disable-next-line react/jsx-props-no-spreading
                   {...register("secondPersonName", { required: true })}
                 />
                 {errors.secondPersonName && (
-                  <p className="text-red-500 text-sm">Last Name is required</p>
+                  <p className="text-red-500 text-sm">
+                    Second Name is required
+                  </p>
                 )}
               </div>
               <div>
@@ -97,6 +97,18 @@ function VideoStoryCreate() {
                 {errors.state && (
                   <p className="text-red-500 text-sm">State is required</p>
                 )}
+              </div>
+              <div>
+                <div className="mb-2 block">
+                  <Label htmlFor="narrativeLink" value="Narrative Link" />
+                </div>
+                <TextInput
+                  id="narrativeLink"
+                  name="narrativeLink"
+                  type="text"
+                  placeholder="Link"
+                  {...register("narrativeLink")}
+                />
               </div>
               <div>
                 <div>

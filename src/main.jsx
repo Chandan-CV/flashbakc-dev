@@ -29,6 +29,8 @@ import TestimonialCreate from "./pages/admin/Testimonials/create";
 import TestimonialEdit from "./pages/admin/Testimonials/edit";
 import Blogs from "./pages/Blogs";
 import AdminBlogs from "./pages/admin/Blogs";
+import CreateBlogs from "./pages/admin/Blogs/create";
+import EditBlog from "./pages/admin/Blogs/edit";
 
 function Layout({ children }) {
   const location = useLocation();
@@ -72,6 +74,8 @@ function RouteSwitch() {
       <Route path="/admin/photostories/edit/:id" element={<EditPhotoStory />} />
       <Route path="/admin/videostories/edit/:id" element={<EditVideoStory />} />
       <Route path="/admin/blogs" element={<AdminBlogs />} />
+      <Route path="/admin/blogs/create" element={<CreateBlogs />} />
+      <Route path="/admin/blogs/edit/:id" element={<EditBlog />} />
     </Routes>
   );
 }

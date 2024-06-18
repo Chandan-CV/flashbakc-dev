@@ -5,7 +5,7 @@ function AdminLayout({ children }) {
   return (
     <div className="flex">
       <AdminSidebar />
-      <div className="w-full">{children}</div>
+      <div className="w-[calc(100%-16rem)]">{children}</div>
     </div>
   );
 }

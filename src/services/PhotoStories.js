@@ -30,6 +30,7 @@ export const createPhotoStory = async (values) => {
           firstPersonName: values.firstPersonName,
           secondPersonName: values.secondPersonName,
           state: values.state,
+          narrativeLink: values.narrativeLink,
           image: imageUrl,
         },
       ])

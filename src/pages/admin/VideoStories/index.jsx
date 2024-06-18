@@ -13,32 +13,14 @@ import {
 import { useEffect, useState } from "react";
 import AdminLayout from "../../../components/AdminLayout";
 import { getVideoStories } from "../../../services/VideoStories";
+import useFetchData from "../../../customHooks/useFetchData";
 
 function VideoStories() {
-  const navigate = useNavigate();
-  const [videoStoryData, setVideoStoryData] = useState([]);
-
-  const fetchData = async () => {
-    try {
-      const { data, error } = await getVideoStories();
-
-      if (error) {
-        throw new Error("Error while fetching Video Stories");
-      }
-
-      setVideoStoryData(data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
+  const { videoStoriesData, fetchVideoStories } = useFetchData();
 
   useEffect(() => {
-    fetchData();
-
-    () => setVideoStoryData([]);
+    fetchVideoStories();
   }, []);
-
-  console.log(videoStoryData, "videoStoryData======>");
 
   return (
     <div>
@@ -63,7 +45,7 @@ function VideoStories() {
                   </TableHeadCell>
                 </TableHead>
                 <TableBody className="divide-y">
-                  {videoStoryData?.map((data) => (
+                  {videoStoriesData?.map((data) => (
                     <TableRow
                       className="bg-white dark:border-gray-700 dark:bg-gray-800"
                       key={data?.id}

@@ -29,6 +29,8 @@ export const createTemonial = async (values) => {
           title: values.title,
           description: values.description,
           image: imageUrl,
+          firstPersonName: values.firstPersonName,
+          secondPersonName: values.secondPersonName,
         },
       ])
       .select();

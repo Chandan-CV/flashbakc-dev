@@ -11,35 +11,22 @@ import {
 } from "flowbite-react";
 import AdminLayout from "../../../components/AdminLayout";
 import { getBlogs } from "../../../services/Blogs";
+import useFetchData from "../../../customHooks/useFetchData";
 
 function AdminBlogs() {
-  const [blogsData, setBlogsData] = useState();
-  const fetchData = async () => {
-    try {
-      const { data, error } = await getBlogs();
+  const { blogsData, fetchBlogs } = useFetchData();
 
-      if (error) {
-        throw new Error("Error while fetching Testimonial");
-      }
-
-      setBlogsData(data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-  if (blogsData) {
-    console.log(blogsData, ":::");
-  }
   useEffect(() => {
-    fetchData();
+    fetchBlogs();
   }, []);
+
   return (
     <div>
       <AdminLayout>
         <div className="p-5 w-full">
           <Card>
             <div className="ml-auto">
-              <a href="/admin/testimonials/create">
+              <a href="/admin/blogs/create">
                 <Button>Create</Button>
               </a>
             </div>
@@ -48,10 +35,11 @@ function AdminBlogs() {
                 <TableHead>
                   <TableHeadCell>ID</TableHeadCell>
                   <TableHeadCell>Title</TableHeadCell>
+                  <TableHeadCell>Description</TableHeadCell>
                   <TableHeadCell>Tags</TableHeadCell>
                   <TableHeadCell>Reading Time</TableHeadCell>
                   <TableHeadCell>State</TableHeadCell>
-                  <TableHeadCell>Image</TableHeadCell>
+                  <TableHeadCell>Cover Image</TableHeadCell>
                   <TableHeadCell>
                     <span className="sr-only">Edit</span>
                   </TableHeadCell>
@@ -67,16 +55,19 @@ function AdminBlogs() {
                         {data?.title}
                       </TableCell>
                       <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                        {data?.description}
+                      </TableCell>
+                      <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
                         {data?.tags}
                       </TableCell>
                       <TableCell> {data?.readingTime}</TableCell>
                       <TableCell> {data?.state}</TableCell>
-                      <TableCell>
-                        <img src={data?.image} width={20} height={20} />
+                      <TableCell className="flex justify-center">
+                        <img src={data?.coverImage} width={20} height={20} />
                       </TableCell>
                       <TableCell>
                         <a
-                          href={`/admin/testimonials/edit/${data?.id}`}
+                          href={`/admin/blogs/edit/${data?.id}`}
                           className="font-medium text-cyan-600 hover:underline dark:text-cyan-500"
                         >
                           Edit

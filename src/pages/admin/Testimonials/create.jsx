@@ -24,9 +24,7 @@ function TestimonialCreate() {
       if (error) {
         console.error("Error creating photo story:", error);
       } else {
-        console.log("Photo story created successfully:", responseData);
         navigate("/admin/testimonials");
-        // Optionally, redirect or show a success message
       }
     } catch (err) {
       console.error("Unexpected error:", err);
@@ -47,6 +45,45 @@ function TestimonialCreate() {
                   <Button color="gray">Back</Button>
                 </a>
                 <Button type="submit">Submit</Button>
+              </div>
+              <div>
+                <div className="mb-2 block">
+                  <Label htmlFor="firstPersonName" value="First Name" />
+                </div>
+                <TextInput
+                  id="firstPersonName"
+                  name="firstPersonName"
+                  type="text"
+                  placeholder="First Person Name"
+                  required
+                  // eslint-disable-next-line react/jsx-props-no-spreading
+                  {...register("firstPersonName", { required: true })}
+                />
+                {errors.firstPersonName && (
+                  <p className="text-red-500 text-sm">First Name is required</p>
+                )}
+              </div>
+              <div>
+                <div className="mb-2 block">
+                  <Label
+                    htmlFor="secondPersonName"
+                    value="Second Person Name"
+                  />
+                </div>
+                <TextInput
+                  id="secondPersonName"
+                  name="secondPersonName"
+                  type="text"
+                  placeholder="Second Person Name"
+                  required
+                  // eslint-disable-next-line react/jsx-props-no-spreading
+                  {...register("secondPersonName", { required: true })}
+                />
+                {errors.secondPersonName && (
+                  <p className="text-red-500 text-sm">
+                    Second Name is required
+                  </p>
+                )}
               </div>
               <div>
                 <div className="mb-2 block">

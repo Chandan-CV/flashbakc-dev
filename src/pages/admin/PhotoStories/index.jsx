@@ -12,28 +12,13 @@ import {
 import { useEffect, useState } from "react";
 import AdminLayout from "../../../components/AdminLayout";
 import { getPhotoStories } from "../../../services/PhotoStories";
+import useFetchData from "../../../customHooks/useFetchData";
 
 function PhotoStories() {
-  const [photoStoryData, setPhotoStoryData] = useState();
-
-  const fetchData = async () => {
-    try {
-      const { data, error } = await getPhotoStories();
-
-      if (error) {
-        throw new Error("Error while fetching FAQs");
-      }
-
-      setPhotoStoryData(data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
+  const { photoStoriesData, fetchPhotoStories } = useFetchData();
 
   useEffect(() => {
-    fetchData();
-
-    () => setPhotoStoryData([]);
+    fetchPhotoStories();
   }, []);
 
   return (
@@ -51,7 +36,7 @@ function PhotoStories() {
                 <TableHead>
                   <TableHeadCell>ID</TableHeadCell>
                   <TableHeadCell>First Name</TableHeadCell>
-                  <TableHeadCell>Last Name</TableHeadCell>
+                  <TableHeadCell>Second Name</TableHeadCell>
                   <TableHeadCell>State</TableHeadCell>
                   <TableHeadCell>Image</TableHeadCell>
                   <TableHeadCell>
@@ -59,7 +44,7 @@ function PhotoStories() {
                   </TableHeadCell>
                 </TableHead>
                 <TableBody className="divide-y">
-                  {photoStoryData?.map((data) => (
+                  {photoStoriesData?.map((data) => (
                     <TableRow
                       className="bg-white dark:border-gray-700 dark:bg-gray-800"
                       key={data?.id}

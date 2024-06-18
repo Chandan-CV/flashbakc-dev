@@ -26,8 +26,6 @@ function PhotoStoryCreate() {
       navigate("/admin/photostories");
       if (error) {
         console.error("Error creating photo story:", error);
-      } else {
-        console.log("Photo story created successfully:", responseData);
       }
     } catch (err) {
       console.error("Unexpected error:", err);
@@ -66,18 +64,20 @@ function PhotoStoryCreate() {
               </div>
               <div>
                 <div className="mb-2 block">
-                  <Label htmlFor="secondPersonName" value="Last Name" />
+                  <Label htmlFor="secondPersonName" value="Second Name" />
                 </div>
                 <TextInput
                   id="secondPersonName"
                   name="secondPersonName"
                   type="text"
-                  placeholder="Last Name"
+                  placeholder="Second Name"
                   required
                   {...register("secondPersonName", { required: true })}
                 />
                 {errors.secondPersonName && (
-                  <p className="text-red-500 text-sm">Last Name is required</p>
+                  <p className="text-red-500 text-sm">
+                    Second Name is required
+                  </p>
                 )}
               </div>
               <div>
@@ -95,6 +95,19 @@ function PhotoStoryCreate() {
                 {errors.state && (
                   <p className="text-red-500 text-sm">State is required</p>
                 )}
+              </div>
+
+              <div>
+                <div className="mb-2 block">
+                  <Label htmlFor="narrativeLink" value="Narrative Link" />
+                </div>
+                <TextInput
+                  id="narrativeLink"
+                  name="narrativeLink"
+                  type="text"
+                  placeholder="Link"
+                  {...register("narrativeLink")}
+                />
               </div>
               <div>
                 <div>

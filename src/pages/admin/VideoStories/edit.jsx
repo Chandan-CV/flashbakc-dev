@@ -28,7 +28,6 @@ function EditVideoStory() {
     };
     try {
       await updateVideoStory(id, apiData);
-      console.log(':::::=>>');
       navigate("/admin/videostories");
     } catch (err) {
       console.error("Unexpected error:", err);
@@ -117,6 +116,18 @@ function EditVideoStory() {
                 {errors.state && (
                   <p className="text-red-500 text-sm">State is required</p>
                 )}
+              </div>
+              <div>
+                <div className="mb-2 block">
+                  <Label htmlFor="narrativeLink" value="Narrative Link" />
+                </div>
+                <TextInput
+                  id="narrativeLink"
+                  name="narrativeLink"
+                  type="text"
+                  placeholder="Link"
+                  {...register("narrativeLink")}
+                />
               </div>
               <div>
                 <div>

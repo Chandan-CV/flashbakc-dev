@@ -117,6 +117,18 @@ function EditPhotoStory() {
                 )}
               </div>
               <div>
+                <div className="mb-2 block">
+                  <Label htmlFor="narrativeLink" value="Narrative Link" />
+                </div>
+                <TextInput
+                  id="narrativeLink"
+                  name="narrativeLink"
+                  type="text"
+                  placeholder="Link"
+                  {...register("narrativeLink")}
+                />
+              </div>
+              <div>
                 <div>
                   <Label
                     htmlFor="file-upload-helper-text"
