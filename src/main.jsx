@@ -31,6 +31,7 @@ import Blogs from "./pages/Blogs";
 import AdminBlogs from "./pages/admin/Blogs";
 import CreateBlogs from "./pages/admin/Blogs/create";
 import EditBlog from "./pages/admin/Blogs/edit";
+import Login from "./pages/Login";
 
 function Layout({ children }) {
   const location = useLocation();
@@ -76,6 +77,7 @@ function RouteSwitch() {
       <Route path="/admin/blogs" element={<AdminBlogs />} />
       <Route path="/admin/blogs/create" element={<CreateBlogs />} />
       <Route path="/admin/blogs/edit/:id" element={<EditBlog />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
   );
 }
