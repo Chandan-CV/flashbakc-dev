@@ -26,6 +26,7 @@ function NavBarSticky(props) {
     if (CurrentStuff === 5) setCurrentStuff(0);
     else setCurrentStuff(CurrentStuff + 1);
   }, 2000);
+
   useEffect(() => {
     addEventListener("scroll", (event) => {
       const scroll = window.pageYOffset || window.documentElement.scrollTop;
