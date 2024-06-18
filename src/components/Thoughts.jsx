@@ -64,7 +64,7 @@ function Thoughts() {
           <span className="text-[#FFCA00] Boldy sm:text-5xl">AWARDS</span>
           <span className="Actonia sm:text-5xl">&</span>{" "}
           <span className=" Boldy sm:lg:text-5xl text-3xltext-[#1c1c1c]">
-            STORIES
+            FEATURES
           </span>
         </div>
         <div className="flex sm:flex-row flex-col justify-center items-center gap-10  pb-20  ">

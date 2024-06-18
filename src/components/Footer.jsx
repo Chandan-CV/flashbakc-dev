@@ -230,8 +230,8 @@ function Footer() {
             alt="Quote"
           />
         </div>
-        <div className=" flex flex-col text-4xl Boldy text-white text-center pb-[50px]">
-          <div className="flex flex-row text-4xl Boldy text-white text-center pl-10">
+        <div className=" flex flex-col text-4xl Boldy text-white text-center ">
+          <div className="flex flex-row text-4xl Boldy text-white text-center pl-10 pt-[50px]">
             Lets Get
             <img
               src="https://cdn.sanity.io/images/u8qx4arf/production/4b7a41122dadf6389912a00d9927152055eb626a-28x28.svg"
@@ -240,7 +240,7 @@ function Footer() {
             />{" "}
           </div>
 
-          <div className="text-yellow-300" key={CurrentStuff}>
+          <div className="text-yellow-300 pl-5" key={CurrentStuff}>
             <MovingComponent
               id="moving"
               type="fadeInFromBottom"

@@ -6,9 +6,11 @@ import { useEffect } from "react";
 
 function Slider() {
   const { fetchPhotoStories, photoStoriesData } = useFetchData();
+
   useEffect(() => {
     fetchPhotoStories();
   }, []);
+
   return (
     <div className="pt-20 bg-[#EDECE7] p-5  justify-self-end  w-full overflow-hidden ">
       <div className="flex flex-col sm:flex-row  items-center justify-center   ">
@@ -34,7 +36,14 @@ function Slider() {
           <span className="text-[#ffca00]  Boldy text-5xl">Photos</span>
         </div>
         <div className="text-lg p-3 border-yellow-400 Boldy cursor-pointer ml-3 rounded-lg font-bold uppercase text-black">
-          <NavLink to="/photostories">see more stories</NavLink>
+          <NavLink to="/photostories">
+            <button
+              type="button"
+              className="border-yellow-300 border-2 px-2  rounded-sm   hover:text-black hover:bg-yellow-300 hover:border-black transition-all ease-in duration-300"
+            >
+              see more stories
+            </button>
+          </NavLink>
         </div>
       </div>
     </div>

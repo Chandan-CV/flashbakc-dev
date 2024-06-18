@@ -26,7 +26,12 @@ function Videos() {
       />
       <div className="text-lg p-3 border-yellow-400 Boldy cursor-pointer pb-20 ml-3 rounded-lg font-bold uppercase text-white w-full justify-end flex">
         <NavLink to="/videostories" className="mr-[20%]">
-          see more videos
+          <button
+            type="button"
+            className="border-yellow-300 border-2 px-2  rounded-sm   hover:text-black hover:bg-yellow-300 hover:border-black transition-all ease-in duration-300"
+          >
+            see more videos
+          </button>
         </NavLink>
       </div>
     </div>
