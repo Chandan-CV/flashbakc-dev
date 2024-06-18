@@ -1,7 +1,6 @@
-import Header from "../components/Header";
+import { useEffect } from "react";
 import GetInTouch from "../components/GetInTouch";
 import QuestionAnswers from "../components/QuestionAnswers";
-import { useEffect } from "react";
 
 function Aboutus() {
   useEffect(() => {
@@ -69,25 +68,32 @@ function Aboutus() {
         className="bg-texture pt-[100px] pb-[100px] bg-fixed flex flex-col justify-start sm:justify-center items-center min-h-screen "
         id="questions"
       >
-        <div className=" text-white uppercase lg:text-5xl text-3xl tracking-tighter Boldy  flex flex-col justify-start sm:justify-center  w-full   sm:items-center">
-          <span className="Boldy text-[#FFCA00] uppercase">questions</span>
-          <span className="Actonia lowercase">you</span> may have
+        <div className="flex flex-col justify-center items-center">
+          <div className=" text-white uppercase lg:text-5xl text-3xl tracking-tighter Boldy  flex flex-col justify-start   w-full text-left  ">
+            <span className="Boldy text-[#FFCA00] uppercase text">
+              questions
+            </span>
+            <div className="flex flex-row">
+              <span className="Actonia lowercase mr-3 -mt-3">you</span> may have
+            </div>
+          </div>
         </div>
+        <div className="flex flex-col justify-center items-center w-[80%]">
+          <QuestionAnswers
+            question="What is your style?"
+            answer="Our working style is super friendly, relaxed and stress-free. We’re all about capturing the memories that happen all around, and not just with the couple. Documentary and intimates is our main focus. Simplicity and Blending in, is our key approach. We know how to capture your moments in the most unique and simple manner. We love the emotion, joy, craziness and uniqueness to every wedding."
+          />
 
-        <QuestionAnswers
-          question="What is your style?"
-          answer="Our working style is super friendly, relaxed and stress-free. We’re all about capturing the memories that happen all around, and not just with the couple. Documentary and intimates is our main focus. Simplicity and Blending in, is our key approach. We know how to capture your moments in the most unique and simple manner. We love the emotion, joy, craziness and uniqueness to every wedding."
-        />
+          <QuestionAnswers
+            question="I'm camera conscious..."
+            answer="Nervous about posing or camera shy? Don't need to worry! We do not ask you to pose or hold a shot for us. We shoot you as the day is unfolding, with you and your family as your natural selves. We know how to get you to giggle, laugh and do all sorts of cute little things for our camera, without you even knowing it.."
+          />
 
-        <QuestionAnswers
-          question="I'm camera conscious..."
-          answer="Nervous about posing or camera shy? Don't need to worry! We do not ask you to pose or hold a shot for us. We shoot you as the day is unfolding, with you and your family as your natural selves. We know how to get you to giggle, laugh and do all sorts of cute little things for our camera, without you even knowing it.."
-        />
-
-        <QuestionAnswers
-          question="What are your charges?"
-          answer="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus. Cras semper auctor neque vitae tempus quam. Nascetur ridiculus mus mauris vitae ultricies leo integer malesuada."
-        />
+          <QuestionAnswers
+            question="What are your charges?"
+            answer="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus. Cras semper auctor neque vitae tempus quam. Nascetur ridiculus mus mauris vitae ultricies leo integer malesuada."
+          />
+        </div>
       </div>
       <GetInTouch />
     </div>

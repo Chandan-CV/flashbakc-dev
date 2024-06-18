@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 function PhotoStoryTile({ name, location, img, className, link }) {
   return (
     <a href={link ? link : ""} target="_blank">
-      <div className="sm:m-3 p-3 sm:p-3">
+      <div className="sm:m-3 p-3 sm:p-3 sm:max-w-[17.6vw]">
         {img?.includes("mp4") ? (
           <video
             src={img}
