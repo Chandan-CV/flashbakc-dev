@@ -16,7 +16,7 @@ function Slider() {
       <div className="flex flex-col sm:flex-row  items-center justify-center   ">
         <div className="flex flex-col text-black p-5">
           <span className="Actonia lg:text-5xl text-3xl-mb-4">our</span>{" "}
-          <span className="ml-10 text-4xl Boldy ">STORIES</span>
+          <span className="ml-12 text-5xl Boldy -mt-3 ">STORIES</span>
         </div>
         <div className="Courier text-1xl font-[#4A4A4A] max-w-4xl">
           are different and every couple is unique. Your moments become your
@@ -27,7 +27,7 @@ function Slider() {
       <div>
         <SlideShow photoStoriesData={photoStoriesData} className="text-black" />
       </div>
-      <div className="flex sm:flex-row justify-end flex-col mr-[20%]">
+      <div className="flex sm:flex-row justify-end flex-col mr-[15%]">
         <div className="flex flex-row text-4xl ml-2 pb-10">
           <img src={uparrow} alt="" className="w-[4vh] ml-10" />{" "}
           <span className="Actonia text-black mb-auto mr-2 text-4xl sm:text-">
@@ -35,7 +35,7 @@ function Slider() {
           </span>
           <span className="text-[#ffca00]  Boldy text-5xl">Photos</span>
         </div>
-        <div className="text-lg p-3 border-yellow-400 Boldy cursor-pointer ml-3 rounded-lg font-bold uppercase text-black">
+        <div className="text-[16px] p-3 border-yellow-400 Boldy cursor-pointer ml-6 rounded-lg  uppercase text-black">
           <NavLink to="/photostories">
             <button
               type="button"

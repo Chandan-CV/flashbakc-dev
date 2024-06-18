@@ -2,9 +2,9 @@
 function GetInTouch() {
   return (
     <div className="w-full flex flex-col items-center text-center justify-center pt-20">
-      <div className="sm:w-[50%] w-full px-10 sm:p-0">
+      <div className="sm:w-1/2 w-full px-10 sm:p-0">
         <span className="Actonia text-6xl text-[#FFCA00]">Hello!</span>
-        <h1 className="sm:lg:text-5xl text-3xltext-4xl mt-2 uppercase Boldy tracking-tighter  text-black ">
+        <h1 className="sm:lg:text-5xl text-4xl mt-2 uppercase Boldy   text-black ">
           tell us all we need to know about you
         </h1>
         <p className="text-[#4A4A4A] Courier font-medium tracking-wider sm:text-lg text-sm mb-10">

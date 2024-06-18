@@ -24,7 +24,7 @@ function Videos() {
         photoStoriesData={videoStoriesData}
         className="text-[#D8CAB1]"
       />
-      <div className="text-lg p-3 border-yellow-400 Boldy cursor-pointer pb-20 ml-3 rounded-lg font-bold uppercase text-white w-full justify-end flex">
+      <div className="text-lg p-3 border-yellow-400 Boldy cursor-pointer pb-20 ml-3 rounded-lg uppercase text-white w-full justify-end flex">
         <NavLink to="/videostories" className="mr-[20%]">
           <button
             type="button"

@@ -12,7 +12,7 @@ function HomePage() {
   }, []);
 
   return (
-    <div className="screen-home">
+    <div className="screen-home overflow-x-hidden">
       <Hero />
       <FeaturedCollection />
       <Sliders />

@@ -6,7 +6,7 @@ function QuestionAnswers({ question, answer }) {
               <p className="flex-1 text-[#FFCA00] text-left sm:text-right sm:mr-5 text-2xl uppercase Boldy sm:text-3xl">
                 {question}
               </p>
-              <p className="flex-[2] text-[#D8CAB1] Courier ">
+              <p className="flex-[3] text-[#D8CAB1] Courier ">
                 {answer}
               </p>
     
