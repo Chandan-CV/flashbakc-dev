@@ -18,7 +18,7 @@ function AdminSidebar() {
             >
               Blogs
             </Sidebar.Item>
-            <Sidebar.Item href="/admin/photostories" icon={HiInbox} label="3">
+            <Sidebar.Item href="/admin/photostories" icon={HiInbox}>
               Photo Stories
             </Sidebar.Item>
             <Sidebar.Item href="/admin/videostories" icon={HiUser}>

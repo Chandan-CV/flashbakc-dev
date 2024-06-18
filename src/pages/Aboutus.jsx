@@ -1,8 +1,13 @@
 import Header from "../components/Header";
 import GetInTouch from "../components/GetInTouch";
 import QuestionAnswers from "../components/QuestionAnswers";
+import { useEffect } from "react";
 
 function Aboutus() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       <div
@@ -11,7 +16,6 @@ function Aboutus() {
           backgroundImage: `url('https://cdn.sanity.io/images/u8qx4arf/production/5439c849afbfa3fe71b2ebb9d65e2134fe2a6588-2560x1305.png')`,
         }}
       >
-        
         <div className="w-full flex flex-row flex-wrap  justify-end text-white uppercase text-3xl sm:text-5xl mb-10 pr-10 Boldy">
           <p className="text-[#FFCA00] tracking-tighter">Friendly.</p>
           <p className="tracking-tighter mr-2 ml-2">Relaxed.</p>
@@ -22,10 +26,8 @@ function Aboutus() {
         <div className="flex flex-col sm:flex-row sm:w-[60%] w-full mt-20">
           <div className="flex flex-col m-5">
             <p className="Actonia lg:text-5xl text-3xl-mb-4">our</p>
-            <p className="uppercase text-black text-4xl Boldy">
-              Flashbakc
-            </p>
-            
+            <p className="uppercase text-black text-4xl Boldy">Flashbakc</p>
+
             <p className="Courier  text-[#4A4A4A]">
               <br />
               Hi! Welcome to Flashbakc Studios. Narrow roads, winding lanes,
@@ -63,35 +65,33 @@ function Aboutus() {
           </div>
         </div>
       </div>
-      <div className="bg-texture pt-[100px] pb-[100px] bg-fixed flex flex-col justify-start sm:justify-center items-center min-h-screen ">
+      <div
+        className="bg-texture pt-[100px] pb-[100px] bg-fixed flex flex-col justify-start sm:justify-center items-center min-h-screen "
+        id="questions"
+      >
         <div className=" text-white uppercase lg:text-5xl text-3xl tracking-tighter Boldy  flex flex-col justify-start sm:justify-center  w-full   sm:items-center">
-          <span className="Boldy text-[#FFCA00] uppercase">
-            questions
-          </span>
-           <span className="Actonia lowercase">you</span> may have
+          <span className="Boldy text-[#FFCA00] uppercase">questions</span>
+          <span className="Actonia lowercase">you</span> may have
         </div>
 
         <QuestionAnswers
-        question="What is your style?"
-        answer="Our working style is super friendly, relaxed and stress-free. We’re all about capturing the memories that happen all around, and not just with the couple. Documentary and intimates is our main focus. Simplicity and Blending in, is our key approach. We know how to capture your moments in the most unique and simple manner. We love the emotion, joy, craziness and uniqueness to every wedding."
+          question="What is your style?"
+          answer="Our working style is super friendly, relaxed and stress-free. We’re all about capturing the memories that happen all around, and not just with the couple. Documentary and intimates is our main focus. Simplicity and Blending in, is our key approach. We know how to capture your moments in the most unique and simple manner. We love the emotion, joy, craziness and uniqueness to every wedding."
         />
 
-
         <QuestionAnswers
-        question="I'm camera conscious..."
-        answer="Nervous about posing or camera shy? Don't need to worry! We do not ask you to pose or hold a shot for us. We shoot you as the day is unfolding, with you and your family as your natural selves. We know how to get you to giggle, laugh and do all sorts of cute little things for our camera, without you even knowing it.."
+          question="I'm camera conscious..."
+          answer="Nervous about posing or camera shy? Don't need to worry! We do not ask you to pose or hold a shot for us. We shoot you as the day is unfolding, with you and your family as your natural selves. We know how to get you to giggle, laugh and do all sorts of cute little things for our camera, without you even knowing it.."
         />
 
-      
         <QuestionAnswers
-        question="What are your charges?"
-        answer="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus. Cras semper auctor neque vitae tempus quam. Nascetur ridiculus mus mauris vitae ultricies leo integer malesuada."
+          question="What are your charges?"
+          answer="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus. Cras semper auctor neque vitae tempus quam. Nascetur ridiculus mus mauris vitae ultricies leo integer malesuada."
         />
       </div>
-      <GetInTouch/>
+      <GetInTouch />
     </div>
   );
 }
-
 
 export default Aboutus;
