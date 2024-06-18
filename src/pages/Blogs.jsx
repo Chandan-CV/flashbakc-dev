@@ -1,7 +1,15 @@
 import Header from "../components/Header";
 import BlogTile from "../components/BlogTile";
+import useFetchData from "../customHooks/useFetchData";
+import { useEffect } from "react";
 
 function Blogs() {
+  const { blogsData, fetchBlogs } = useFetchData();
+
+  useEffect(() => {
+    fetchBlogs();
+  }, []);
+
   return (
     <div>
       <div
@@ -49,15 +57,18 @@ function Blogs() {
               </p>
             </div>
           </div>
-          <div className="p-5">
-            <BlogTile
-              imageUrl="https://images.unsplash.com/photo-1714733708319-67d8371be5b0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              date="March 21, 2024"
-              length="2 min read"
-              location="Goa"
-              tags="Wedding, Photography"
-            />
-          </div>
+          {blogsData?.map((item, index) => (
+            <div className="p-5">
+              <BlogTile
+                imageUrl={item?.coverImage}
+                date={item?.created_at}
+                length={`${item?.readingTime || 10} min read`}
+                location={item?.state}
+                tags="Wedding, Photography"
+                title={item?.title}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </div>

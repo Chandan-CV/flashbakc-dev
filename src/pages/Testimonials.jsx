@@ -1,8 +1,15 @@
-
+import { useEffect } from "react";
 import Header from "../components/Header";
 import TestimonialTile from "../components/TestimonialTile";
+import useFetchData from "../customHooks/useFetchData";
 
 function Testimonials() {
+  const { testimonialsData, fetchTestimonials } = useFetchData();
+
+  useEffect(() => {
+    fetchTestimonials();
+  }, []);
+
   return (
     <div>
       <div>
@@ -31,26 +38,16 @@ function Testimonials() {
               THEIR THOUGHTS
             </span>
           </div>
-          <TestimonialTile
-            name="JOSHUA + MARISSCA"
-            content="While planning our wedding we got alot of different input/suggestions from everyone, however the one common suggestion all the married couples gave us was to choose our wedding photographers carefully because everything else we do is for our guests, but our wedding pictures will be only for us and with us for the rest of our lives.
-          When we came across their page on Instagram, we instantly knew that we wanted them to capture our big day. We immediately sent an inquiry and honestly while everyone else needed alot of reminders and follow up, Rahul and Fabian were extremely professional and we got a really quick response with all the info we needed. We were already impressed with their work but this took it to the next level!"
-            title="We got a couple of pictures the very next day and were so thrilled and mesmerised."
-          />
-          <TestimonialTile
-            name="JOSHUA + MARISSCA"
-            content="While planning our wedding we got alot of different input/suggestions from everyone, however the one common suggestion all the married couples gave us was to choose our wedding photographers carefully because everything else we do is for our guests, but our wedding pictures will be only for us and with us for the rest of our lives.
-
-          When we came across their page on Instagram, we instantly knew that we wanted them to capture our big day. We immediately sent an inquiry and honestly while everyone else needed alot of reminders and follow up, Rahul and Fabian were extremely professional and we got a really quick response with all the info we needed. We were already impressed with their work but this took it to the next level!"
-            title="We got a couple of pictures the very next day and were so thrilled and mesmerised."
-          />
-          <TestimonialTile
-            name="JOSHUA + MARISSCA"
-            content="While planning our wedding we got alot of different input/suggestions from everyone, however the one common suggestion all the married couples gave us was to choose our wedding photographers carefully because everything else we do is for our guests, but our wedding pictures will be only for us and with us for the rest of our lives.
-
-          When we came across their page on Instagram, we instantly knew that we wanted them to capture our big day. We immediately sent an inquiry and honestly while everyone else needed alot of reminders and follow up, Rahul and Fabian were extremely professional and we got a really quick response with all the info we needed. We were already impressed with their work but this took it to the next level!"
-            title="We got a couple of pictures the very next day and were so thrilled and mesmerised."
-          />
+          {testimonialsData?.map((item, index) => (
+            <div>
+              <TestimonialTile
+                name={`${item?.firstPersonName} + ${item?.secondPersonName}`}
+                content={item?.description}
+                title={item?.title}
+                img={item?.image}
+              />
+            </div>
+          ))}
         </div>
       </div>
       <div className=" h-[100%] flex justify-center items-center  ">

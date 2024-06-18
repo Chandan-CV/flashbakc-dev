@@ -1,21 +1,21 @@
-
+import moment from "moment/moment";
 import PropTypes from "prop-types";
 
 function BlogTile({ imageUrl, title, length, date, location, tags }) {
   // component logic here
 
   return (
-    <div className=" flex flex-col">
-      <img src={imageUrl} className="h-[20%]" alt = "helo"/>
+    <div className="flex flex-col">
+      <img src={imageUrl} className="h-[20%]" alt="helo" />
+      <p className="text-white Boldy mt-1">{title}</p>
       <div className="flex flex-row">
-        <p>{title}</p>
-        <div>
+        <div className="text-white">
           {" "}
-          {length} | {date} | {location}
+          {length} | {moment(date).format("LL")} | {location}
         </div>
-        <div>
-          <p>Tags: {tags}</p>
-        </div>
+      </div>
+      <div>
+        <span className="text-[#D8CAB1]">Tags: {tags}</span>
       </div>
     </div>
   );

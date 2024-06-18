@@ -26,6 +26,7 @@ function NavBarSticky(props) {
     if (CurrentStuff === 5) setCurrentStuff(0);
     else setCurrentStuff(CurrentStuff + 1);
   }, 2000);
+
   useEffect(() => {
     addEventListener("scroll", (event) => {
       const scroll = window.pageYOffset || window.documentElement.scrollTop;
@@ -123,9 +124,9 @@ function NavBarSticky(props) {
               >
                 About us
               </NavLink>
-              <NavLink to="/aboutus" className=" Courier text-sm ">
+              <a href="/aboutus#questions" className=" Courier text-sm ">
                 FAQs
-              </NavLink>
+              </a>
             </ul>
             <Dropdown
               label="More"
@@ -158,55 +159,56 @@ function NavBarSticky(props) {
       {/* small screen */}
 
       <div className=" flex flex-col w-screen justify-between overflow-hidden">
-        {GetInTouchButtonVisible ? (
-          <button type= "button" className=" flex flex-row bg-[#ffca00] h-[34px] p-3 w-[145px] rounded text-black cursor-pointer fixed right-5 top-5 overflow-hidden  hover:text-black hover:bg-yellow-300 hover:border-black transition-all ease-in duration-300">
-            <span className="mr-2 Boldy flex items-center justify-center">
-              GET{" "}
-            </span>
-            <div
-              className="flex items-center justify-center Boldy"
-              key={CurrentStuff}
+        <button
+          type="button"
+          className=" flex flex-row bg-[#ffca00] h-[34px] p-3 w-[145px] rounded text-black cursor-pointer fixed right-5 top-5 overflow-hidden  hover:text-black hover:bg-yellow-300 hover:border-black transition-all ease-in duration-300"
+        >
+          <span className="mr-2 Boldy flex items-center justify-center">
+            GET{" "}
+          </span>
+          <div
+            className="flex items-center justify-center Boldy"
+            key={CurrentStuff}
+          >
+            <MovingComponent
+              id="moving"
+              type="fadeInFromBottom"
+              duration="1000ms"
+              delay="0s"
+              direction="normal"
+              timing="ease-in-out"
+              iteration="1"
+              fillMode="none"
             >
-              <MovingComponent
-                id="moving"
-                type="fadeInFromBottom"
-                duration="1000ms"
-                delay="0s"
-                direction="normal"
-                timing="ease-in-out"
-                iteration="1"
-                fillMode="none"
-              >
-                {stuff[CurrentStuff]}
-              </MovingComponent>
-            </div>
-          </button>
-        ) : null}
-        {GetInTouchButtonVisible ? (
-          <button className=" flex flex-row bg-[#ffca00] h-[34px] p-2 w-[140px] rounded text-black cursor-pointer fixed right-5 top-5 overflow-hidden  hover:text-black hover:bg-yellow-300 hover:border-black transition-all ease-in duration-300">
-            <span className="mr-2 Boldy flex items-center justify-center">
-              GET{" "}
-            </span>
-            <div
-              className="flex items-center justify-center Boldy"
-              key={CurrentStuff}
+              {stuff[CurrentStuff]}
+            </MovingComponent>
+          </div>
+        </button>
+
+        <button className=" flex flex-row bg-[#ffca00] h-[34px] p-2 w-[140px] rounded text-black cursor-pointer fixed right-5 top-5 overflow-hidden  hover:text-black hover:bg-yellow-300 hover:border-black transition-all ease-in duration-300">
+          <span className="mr-2 Boldy flex items-center justify-center">
+            GET{" "}
+          </span>
+          <div
+            className="flex items-center justify-center Boldy"
+            key={CurrentStuff}
+          >
+            <MovingComponent
+              id="moving"
+              type="fadeInFromBottom"
+              duration="1000ms"
+              delay="0s"
+              direction="normal"
+              timing="ease-in-out"
+              iteration="1"
+              fillMode="none"
             >
-              <MovingComponent
-                id="moving"
-                type="fadeInFromBottom"
-                duration="1000ms"
-                delay="0s"
-                direction="normal"
-                timing="ease-in-out"
-                iteration="1"
-                fillMode="none"
-              >
-                {" "}
-                {stuff[CurrentStuff]}
-              </MovingComponent>
-            </div>
-          </button>
-        ) : null}
+              {" "}
+              {stuff[CurrentStuff]}
+            </MovingComponent>
+          </div>
+        </button>
+
         <div className=" sm:hidden absolute bg-none ">
           <IconButton
             variant="outlined"
@@ -215,13 +217,7 @@ function NavBarSticky(props) {
           >
             <Menu />
           </IconButton>
-          <Drawer
-            sx ={{
-            }}
-            open={open}
-            onClose={() => setOpen(false)}
-            size='lg'
-          >
+          <Drawer sx={{}} open={open} onClose={() => setOpen(false)} size="lg">
             <Box
               sx={{
                 display: "flex",
